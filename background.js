@@ -256,7 +256,7 @@ function copyToClipboard(text) {
     chainPromises([
         ()        => { return browser.tabs.executeScript({code: "typeof copyToClipboard === 'function';"}); },
         (results) => { return injectScriptIfNecessary(results && results[0]); },
-        ()        => { return browser.tabs.executeScript({code: `copyToClipboard("${lastSourceURL}")`}); },
+        ()        => { return browser.tabs.executeScript({code: `copyToClipboard("${text}")`}); },
     ]);
 }
 
